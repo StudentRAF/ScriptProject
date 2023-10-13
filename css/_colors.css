@@ -32,3 +32,13 @@
     --purple-100: #E1BEE7;
     --purple-50:  #F3E5F5;
 }
+
+:root {
+    --background-primary: var(--gray-950);
+
+    --border-primary: var(--gray-900);
+    --border-accent:  var(--orange-500);
+
+    --foreground-primary: var(--gray-100);
+    --foreground-accent:  var(--orange-500);
+}

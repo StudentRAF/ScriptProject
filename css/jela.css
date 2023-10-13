@@ -1,0 +1,5 @@
+@import "_colors.css";
+
+.table {
+    table-layout: fixed;
+}
