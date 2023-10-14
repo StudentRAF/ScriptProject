@@ -62,7 +62,7 @@ const generateDish = (dish) => {
 const calculatePrice = (order) => {
     let price = 0;
 
-    order.dishes.forEach((dish, index) => price += dishes.at(index).price * order.quantities.at(index));
+    order.dishes.forEach((dish, index) => price += dishes.at(dish).price * order.quantities.at(index));
 
     return price;
 }
