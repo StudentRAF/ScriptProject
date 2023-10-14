@@ -1,5 +1,3 @@
-// Tabela treba da ima kolone: Zakazano vreme, Status, Cena, Adresa, Sadržaj narudžbine, Akcija
-
 const Category = {
     PIZZA:     "Pizza",
     SANDWICH : "Sendvič"
