@@ -50,13 +50,13 @@ const rowData = [
 const generateContent = (order) => {
     let content = String();
 
-    order.dishes.forEach((dishID) => content += generateDish(dishes[dishID]));
+    order.dishes.forEach((dishID, index) => content += generateDish(dishes[dishID], order.quantities[index]));
 
     return content;
 }
 
-const generateDish = (dish) => {
-    return `<p class="column-content-dish">${dish.name}</p>`
+const generateDish = (dish, quantity) => {
+    return `<p class="column-content-dish">${dish.name} x ${quantity}</p>`
 }
 
 const calculatePrice = (order) => {
