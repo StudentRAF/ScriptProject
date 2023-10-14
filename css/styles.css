@@ -71,7 +71,11 @@ h1 {
 .nav-link:focus {
     font-weight: 500;
     padding: 8px 4px;
-    color: var(--foreground-primary);
+    color: var(--foreground-navbar);
+
+    &.active {
+        color: var(--foreground-navbar-active);
+    }
 }
 
 .table {
