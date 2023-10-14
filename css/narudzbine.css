@@ -1,0 +1,18 @@
+@import "_colors.css";
+
+.table {
+    table-layout: fixed;
+}
+
+.column-content-dish {
+    margin-bottom: 4px;
+}
+
+.column-time,
+.column-status,
+.column-price,
+.column-address,
+.column-content,
+.column-action {
+    vertical-align: middle;
+}
