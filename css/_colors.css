@@ -1,6 +1,6 @@
 :root {
     --gray-950: #060708;
-    --gray-900: #121314;
+    --gray-900: #131415;
     --gray-800: #2C2D2E;
     --gray-700: #474849;
     --gray-600: #616263;
@@ -34,11 +34,23 @@
 }
 
 :root {
-    --background-primary: var(--gray-950);
+    --background-primary:      var(--gray-950);
+    --backgroudn-table:        var(--gray-900);
+    --background-button:       var(--gray-800);
+    --background-button-hover: var(--gray-700);
 
-    --border-primary: var(--gray-900);
-    --border-accent:  var(--orange-500);
+    --border-primary:      var(--gray-900);
+    --border-table:        var(--gray-800);
+    --border-button:       transparent;
+    --border-button-hover: var(--background-button-hover);
+    --border-accent:       var(--orange-500);
 
-    --foreground-primary: var(--gray-100);
-    --foreground-accent:  var(--orange-500);
+    --foreground-primary:       var(--gray-100);
+    --foreground-navbar:        var(--gray-300);
+    --foreground-navbar-active: var(--gray-100);
+    --foreground-table-data:    var(--gray-100);
+    --foreground-table-header:  var(--gray-100);
+    --foreground-button:        var(--gray-100);
+    --foreground-button-hover:  var(--gray-100);
+    --foreground-accent:        var(--orange-500);
 }

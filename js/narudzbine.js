@@ -68,5 +68,5 @@ const calculatePrice = (order) => {
 }
 
 const generateActionColumn = (order) => {
-    return `<a class="btn btn-dark link-edit-dish" href="narudbina.html?id=${order.id}">Detalji</a>`;
+    return `<a class="btn btn-dark action-edit-dish" href="narudbina.html?id=${order.id}">Detalji</a>`;
 }

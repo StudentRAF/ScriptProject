@@ -1,5 +1,10 @@
 @import "_colors.css";
 
-.table {
-    table-layout: fixed;
+.action-edit-dish {
+    margin-left: 20px;
+}
+
+.table-options {
+    display: flex;
+    justify-content: center;
 }

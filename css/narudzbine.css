@@ -6,13 +6,9 @@
 
 .column-content-dish {
     margin-bottom: 4px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
-.column-time,
-.column-status,
-.column-price,
-.column-address,
-.column-content,
-.column-action {
-    vertical-align: middle;
-}

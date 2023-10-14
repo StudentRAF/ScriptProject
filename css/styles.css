@@ -73,3 +73,61 @@ h1 {
     padding: 8px 4px;
     color: var(--foreground-primary);
 }
+
+.table {
+    table-layout: fixed;
+    border-collapse:collapse;
+    border-radius: 10px;
+    vertical-align: middle;
+    margin-bottom: 25px;
+}
+
+th,
+td {
+    padding: 12px 25px !important;
+    background-color: var(--backgroudn-table) !important;
+    border-bottom: 1px solid var(--border-table);
+}
+
+th {
+    color: var(--foreground-table-header) !important;
+    padding: 14px 25px !important;
+}
+
+td {
+    color: var(--foreground-table-data) !important;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:last-child td {
+    border: none;
+}
+
+tr:last-of-type td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-of-type td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.btn {
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: var(--foreground-button);
+    background-color: var(--background-button);
+    border: 1px solid var(--border-button);
+}
+
+.btn:hover {
+    color: var(--foreground-button-hover);
+    background-color: var(--background-button-hover);
+    border: 1px solid var(--border-button-hover);
+}
