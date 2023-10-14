@@ -1,0 +1,64 @@
+@import "_colors.css";
+
+h2 {
+    text-align: center;
+    color: var(--foreground-primary);
+}
+
+label {
+    margin: 18px 0 4px 6px;
+    color: var(--foreground-label);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+.container-fluid {
+    width: 1000px;
+}
+
+.form-container {
+    padding: 50px;
+    background-color: var(--background-form);
+    border-radius: 10px;
+}
+
+.form-control {
+    background-color: var(--background-input) !important;
+    border-color: transparent;
+    color: var(--foreground-input);
+    resize: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--border-accent);
+    color: var(--foreground-input-active);
+}
+
+.form-select {
+    background-color: var(--gray-800) !important;
+    border-color: transparent;
+    color: var(--foreground-input);
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border-color: var(--border-accent);
+    color: var(--foreground-input-active);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+
+    .btn:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+.error {
+    border: 1px solid var(--border-error) !important;
+}

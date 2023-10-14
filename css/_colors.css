@@ -11,6 +11,8 @@
     --gray-100: #E6E7E8;
     --gray-50:  #F1F2F3;
 
+    --red-500: #FF0000;
+
     --orange-900: #FF6F00;
     --orange-800: #FF8F00;
     --orange-700: #FFA000;
@@ -32,25 +34,38 @@
     --purple-100: #E1BEE7;
     --purple-50:  #F3E5F5;
 }
-
 :root {
-    --background-primary:      var(--gray-950);
-    --backgroudn-table:        var(--gray-900);
-    --background-button:       var(--gray-800);
-    --background-button-hover: var(--gray-700);
+    --background-primary:             var(--gray-950);
+    --background-table:               var(--gray-900);
+    --background-button:              var(--gray-800);
+    --background-button-hover:        var(--gray-700);
+    --background-button-accent:       var(--orange-500);
+    --background-button-accent-hover: var(--orange-700);
+    --background-form:                var(--gray-900);
+    --background-input:               var(--gray-800);
 
-    --border-primary:      var(--gray-900);
-    --border-table:        var(--gray-800);
-    --border-button:       transparent;
-    --border-button-hover: var(--background-button-hover);
-    --border-accent:       var(--orange-500);
 
-    --foreground-primary:       var(--gray-100);
-    --foreground-navbar:        var(--gray-300);
-    --foreground-navbar-active: var(--gray-100);
-    --foreground-table-data:    var(--gray-100);
-    --foreground-table-header:  var(--gray-100);
-    --foreground-button:        var(--gray-100);
-    --foreground-button-hover:  var(--gray-100);
-    --foreground-accent:        var(--orange-500);
+    --border-primary:             var(--gray-900);
+    --border-table:               var(--gray-800);
+    --border-button:              transparent;
+    --border-button-hover:        var(--background-button-hover);
+    --border-button-accent:       transparent;
+    --border-button-accent-hover: var(--background-button-accent-hover);
+    --border-accent:              var(--orange-500);
+    --border-error:               var(--red-500);
+
+
+    --foreground-primary:             var(--gray-100);
+    --foreground-navbar:              var(--gray-300);
+    --foreground-navbar-active:       var(--gray-100);
+    --foreground-table-data:          var(--gray-100);
+    --foreground-table-header:        var(--gray-100);
+    --foreground-button:              var(--gray-100);
+    --foreground-button-hover:        var(--gray-100);
+    --foreground-button-accent:       var(--gray-900);
+    --foreground-button-accent-hover: var(--gray-900);
+    --foreground-accent:              var(--orange-500);
+    --foreground-label:               var(--gray-300);
+    --foreground-input:               var(--gray-200);
+    --foreground-input-active:        var(--gray-100);
 }

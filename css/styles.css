@@ -89,7 +89,7 @@ h1 {
 th,
 td {
     padding: 12px 25px !important;
-    background-color: var(--backgroudn-table) !important;
+    background-color: var(--background-table) !important;
     border-bottom: 1px solid var(--border-table);
 }
 
@@ -123,15 +123,27 @@ tr:last-of-type td:last-child {
 }
 
 .btn {
-    padding: 5px 20px;
+    padding: 5px 24px;
     border-radius: 10px;
     color: var(--foreground-button);
     background-color: var(--background-button);
     border: 1px solid var(--border-button);
+
+    &:hover {
+        color: var(--foreground-button-hover) !important;
+        background-color: var(--background-button-hover) !important;
+        border: 1px solid var(--border-button-hover) !important;
+    }
 }
 
-.btn:hover {
-    color: var(--foreground-button-hover);
-    background-color: var(--background-button-hover);
-    border: 1px solid var(--border-button-hover);
+.btn-accent {
+    color: var(--foreground-button-accent);
+    background-color: var(--background-button-accent);
+    border: 1px solid var(--border-button-accent);
+
+    &:hover {
+        color: var(--foreground-button-accent-hover) !important;
+        background-color: var(--background-button-accent-hover) !important;
+        border: 1px solid var(--border-button-accent-hover) !important;
+    }
 }
