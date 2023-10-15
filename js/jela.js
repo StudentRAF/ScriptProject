@@ -1,13 +1,6 @@
-const Category = {
-    PIZZA:     "Pizza",
-    SANDWICH : "Sendvič"
-}
+const Category = readJSONCookie("Category");
 
-const dishes = [
-    { id: 0, name: "Kaprićoza-velika", category: Category.PIZZA,    price: 1000 },
-    { id: 1, name: "Kaprićoza-mala",   category: Category.PIZZA,    price:  600 },
-    { id: 2, name: "Prezident",        category: Category.SANDWICH, price:   99 }
-]
+const dishes = readJSONCookie("dishes");
 
 document.addEventListener("DOMContentLoaded", (event) => {
     let table = document.getElementById("dishes");

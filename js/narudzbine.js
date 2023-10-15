@@ -1,23 +1,10 @@
-const Category = {
-    PIZZA:     "Pizza",
-    SANDWICH : "Sendvič"
-}
+const Category = readJSONCookie("Category");
 
-const dishes = [
-    { id: 0, name: "Kaprićoza-velika", category: Category.PIZZA,    price: 1000 },
-    { id: 1, name: "Kaprićoza-mala",   category: Category.PIZZA,    price:  600 },
-    { id: 2, name: "Prezident",        category: Category.SANDWICH, price:   99 }
-]
+const dishes = readJSONCookie("dishes");
 
-const Status = {
-    NEW:       "Nova",
-    ACCEPTED : "Prihvaćena"
-}
+const Status = readJSONCookie("Status");
 
-const orders = [
-    { id: 0, time: new Date(), status: Status.NEW,      address: "Kralja Milana 12/2", dishes: [ 0, 1, 2 ], quantities: [ 1, 1, 1 ] },
-    { id: 1, time: new Date(), status: Status.ACCEPTED, address: "Knez Mihailova 6/6", dishes: [ 2 ],       quantities: [ 3 ]       }
-]
+const orders = readJSONCookie("orders");
 
 document.addEventListener("DOMContentLoaded", (event) => {
     let table = document.getElementById("orders");
