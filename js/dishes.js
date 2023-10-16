@@ -28,5 +28,5 @@ const rowData = [
 
 const generateActionColumn = (dish) => {
     return `<button class="btn btn-dark action-edit-price" onclick="">Promena cene</button>` +
-           `<a class="btn btn-dark action-edit-dish" href="jelo.html?id=${dish.id}">Izmeni</a>`;
+           `<a class="btn btn-dark action-edit-dish" href="dish.html?id=${dish.id}">Izmeni</a>`;
 }

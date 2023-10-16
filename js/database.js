@@ -33,8 +33,6 @@ window.onload = () => {
     addCookie("dishes",   dishes);
     addCookie("Category", Category);
     addCookie("Status",   Status);
-
-    console.log(readJSONCookie("orders"));
 }
 
 function deleteAllCookies() {

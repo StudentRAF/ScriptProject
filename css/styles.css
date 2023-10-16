@@ -21,6 +21,24 @@ h1 {
     color: var(--foreground-primary);
 }
 
+
+label {
+    margin: 18px 0 6px 6px;
+    color: var(--foreground-label);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+}
+
+input::placeholder {
+    color: var(--foreground-input-placeholder) !important;
+}
+
+textarea::placeholder {
+    color: var(--foreground-input-placeholder) !important;
+}
+
 .container-fluid {
     display: flex;
     flex: 1 0 auto;
@@ -146,4 +164,45 @@ tr:last-of-type td:last-child {
         background-color: var(--background-button-accent-hover) !important;
         border: 1px solid var(--border-button-accent-hover) !important;
     }
+}
+
+.btn-danger {
+    color: var(--foreground-button-danger);
+    background-color: var(--background-button-danger);
+    border: 1px solid var(--border-button-danger);
+
+    &:hover {
+        color: var(--foreground-button-danger-hover) !important;
+        background-color: var(--background-button-danger-hover) !important;
+        border: 1px solid var(--border-button-danger-hover) !important;
+    }
+}
+
+.form-control {
+    background-color: var(--background-input) !important;
+    border-color: transparent;
+    color: var(--foreground-input);
+    resize: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--border-accent);
+    color: var(--foreground-input-active);
+}
+
+.form-select {
+    background-color: var(--gray-800) !important;
+    border-color: transparent;
+    color: var(--foreground-input);
+}
+
+.form-select:focus {
+    box-shadow: none;
+    border-color: var(--border-accent);
+    color: var(--foreground-input-active);
+}
+
+.error {
+    border: 1px solid var(--border-error) !important;
 }
