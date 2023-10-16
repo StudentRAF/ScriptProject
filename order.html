@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Script Project</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=DM+Sans:wght@400;500;700&display=swap' rel='stylesheet'>
+        <link href="css/styles.css" rel="stylesheet">
+        <link href="css/order.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/database.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/order.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dishes.html">Ponuda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="orders.html">Narudžbine</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="container-fluid">
+            <form id="form" onsubmit="return saveChanges()" action="orders.html">
+                <div class="form-container">
+                    <h2 >Detalji porudžbine</h2>
+                    <table class="table table-dark">
+                        <tbody id="order-table">
+                            <tr>
+                                <th>Broj porudžbine</th>
+                                <td id="order-id"></td>
+                            </tr>
+                            <tr>
+                                <th>Zakazano vreme</th>
+                                <td id="order-time"></td>
+                            </tr>
+                            <tr>
+                                <th>Status porudžbine</th>
+                                <td><select id="order-status" class="form-select"></select></td>
+                            </tr>
+                            <tr>
+                                <th>Sadržaj porudžbine</th>
+                                <td><ul id="order-details"></ul></td>
+                            </tr>
+                            <tr>
+                                <th>Adresa za slanje</th>
+                                <td id="order-address"></td>
+                            </tr>
+                            <tr>
+                                <th>Cena porudžbine</th>
+                                <td id="order-price"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-options">
+                        <button class="btn btn-accent">Sačuvaj promene</button>
+                        <a class="btn" href="dishes.html">Nazad</a>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>

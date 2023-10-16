@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let categoryElement = document.getElementById("category");
 
     let categories = readJSONCookie("Category");
-    Object.keys(categories).forEach((key) => { categoryElement.appendChild(generateCategoryOption(categories[key])) })
+    Object.keys(categories).forEach((key) => { categoryElement.appendChild(generateCategoryOption(categories[key])) });
 
     // Form events
     document.getElementById("form").action = "dishes.html";
