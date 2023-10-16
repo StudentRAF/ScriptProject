@@ -10,8 +10,12 @@ window.onload = () => {
     };
 
     const Status = {
-        NEW:       "Nova",
-        ACCEPTED : "Prihvaćena"
+        NEW:         "Nova",
+        ACCEPTED:    "Prihvaćena",
+        DECLINED:    "Odbijena",
+        PREPARATION: "U pripremi",
+        SENT:        "U dostavi",
+        DELIVERED:   "Završeno"
     };
 
     const orders = [

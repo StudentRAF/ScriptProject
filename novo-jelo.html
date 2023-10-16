@@ -30,29 +30,26 @@
         </nav>
         <main class="container-fluid">
             <h1>Dodavanje novog jela</h1>
-            <form class="form" action="https://postman-echo.com/post" method="post" onsubmit="return validate()">
+            <form id="form" onsubmit="return submitForm()" action="https://postman-echo.com/post" method="post" class="form">
                 <div class="form-container">
                     <h2>Jelo</h2>
                     <!-- Name -->
                     <label for="dish-name">Naziv:</label>
-                    <input id="dish-name" name="dish-name" class="form-control">
+                    <input id="dish-name" name="dish-name" placeholder="Naziv jela" class="form-control">
                     <!-- Description -->
                     <label for="description">Opis:</label>
-                    <textarea id="description" name="description" class="form-control" rows="5"></textarea>
+                    <textarea id="description" name="description" placeholder="Opis jela, namirnice, alergeni itd. (opciono)" class="form-control" rows="5"></textarea>
                     <!-- Category and Price -->
                     <div class="row">
                         <!-- Category -->
                         <div class="col-6">
                             <label for="category">Kategorija:</label>
-                            <select id="category" name="category" class="form-select">
-                                <option value="1">Pizza</option>
-                                <option value="2">Sendvič</option>
-                            </select>
+                            <select id="category" name="category" class="form-select"></select>
                         </div>
                         <!-- Price -->
                         <div class="col-6">
                             <label for="price">Cena:</label>
-                            <input id="price" name="price" class="form-control" type="number" onfocus="clear()">
+                            <input id="price" name="price" type="number" placeholder="Cena RSD" class="form-control">
                         </div>
                     </div>
                     <div class="button-container">

@@ -68,4 +68,5 @@
     --foreground-label:               var(--gray-300);
     --foreground-input:               var(--gray-200);
     --foreground-input-active:        var(--gray-100);
+    --foreground-input-placeholder:   var(--gray-600);
 }

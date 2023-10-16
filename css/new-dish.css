@@ -14,6 +14,14 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none !important;
 }
 
+input::placeholder {
+    color: var(--foreground-input-placeholder) !important;
+}
+
+textarea::placeholder {
+    color: var(--foreground-input-placeholder) !important;
+}
+
 .container-fluid {
     width: 1000px;
 }
