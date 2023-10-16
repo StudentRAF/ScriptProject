@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     Object.keys(categories).forEach((key) => { categoryElement.appendChild(generateCategoryOption(categories[key])) })
 
     // Form events
-    document.getElementById("form").action = "jela.html";
+    document.getElementById("form").action = "dishes.html";
     document.getElementById("form").method = "post";
 
 });
