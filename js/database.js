@@ -18,6 +18,14 @@ window.onload = () => {
         { id: 1, name: "Sendvič" }
     ];
 
+    const ingredients = [
+        { id: 0, name: "Šunka"     },
+        { id: 1, name: "Kačkavalj" },
+        { id: 2, name: "Kečap"     },
+        { id: 3, name: "Parizer"   },
+        { id: 4, name: "Majonez"   }
+    ];
+
     const orders = [
         { id: 0, time: new Date().toLocaleString(), status: 0, address: "Kralja Milana 12/2", dishes: [ 0, 1, 2 ], quantities: [ 1, 1, 1 ] },
         { id: 1, time: new Date().toLocaleString(), status: 1, address: "Knez Mihailova 6/6", dishes: [ 2 ],       quantities: [ 3 ]       }
@@ -29,10 +37,11 @@ window.onload = () => {
         { id: 2, name: "Prezident",        category: 1,    price:   99 }
     ];
 
-    addCookie("orders",     orders);
-    addCookie("dishes",     dishes);
-    addCookie("categories", categories);
-    addCookie("statuses",   statuses);
+    addCookie("orders",      orders);
+    addCookie("dishes",      dishes);
+    addCookie("categories",  categories);
+    addCookie("statuses",    statuses);
+    addCookie("ingredients", ingredients);
 }
 
 function deleteAllCookies() {
