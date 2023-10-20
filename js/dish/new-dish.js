@@ -1,6 +1,6 @@
-let dishes = readJSONCookie("dishes");
+categories = readJSONCookie("categories");
 
-let categories = readJSONCookie("categories");
+let dishes = readJSONCookie("dishes");
 
 const saveChanges = () => {
     if (!validate())

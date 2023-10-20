@@ -1,4 +1,4 @@
-let categories = readJSONCookie("categories");
+categories = readJSONCookie("categories");
 
 let dishes = readJSONCookie("dishes");
 
