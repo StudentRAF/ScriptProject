@@ -1,4 +1,4 @@
-@import "_colors.css";
+@import "../_colors.css";
 
 .content-container {
     width: 800px;
