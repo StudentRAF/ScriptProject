@@ -1,0 +1,14 @@
+@import "../_colors.css";
+
+th:nth-child(2) {
+    width: 280px;
+}
+
+th:last-child,
+td:last-child {
+    padding-right: 30px !important;
+}
+
+.content-container {
+    width: 800px;
+}
