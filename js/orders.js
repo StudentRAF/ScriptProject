@@ -7,7 +7,7 @@ const Status = readJSONCookie("Status");
 const orders = readJSONCookie("orders");
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    let table = document.getElementById("orders");
+    let table = document.getElementById("order-list");
 
     orders.forEach((order) => appendRow(table, order));
 });
@@ -53,5 +53,5 @@ const calculatePrice = (order) => {
 }
 
 const generateActionColumn = (order) => {
-    return `<a class="btn btn-dark action-edit-dish" href="order.html?id=${order.id}">Detalji</a>`;
+    return `<a class="btn btn-dark" href="order.html?id=${order.id}">Detalji</a>`;
 }

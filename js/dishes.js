@@ -3,7 +3,7 @@ const Category = readJSONCookie("Category");
 const dishes = readJSONCookie("dishes");
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    let table = document.getElementById("dishes");
+    let table = document.getElementById("dish-list");
 
     dishes.forEach((dish) => appendRow(table, dish));
 });
@@ -27,6 +27,8 @@ const rowData = [
 ]
 
 const generateActionColumn = (dish) => {
-    return `<button class="btn btn-dark action-edit-price" onclick="">Promena cene</button>` +
-           `<a class="btn btn-dark action-edit-dish" href="dish.html?id=${dish.id}">Izmeni</a>`;
+    return `<div class="button-action-container">`                                 +
+               `<a class="btn btn-dark" href="dish.html?id=${dish.id}">Izmeni</a>` +
+               `<button class="btn btn-danger-hover" onclick="">Ukloni</button>`   +
+           `</div>`;
 }

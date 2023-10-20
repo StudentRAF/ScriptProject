@@ -21,6 +21,15 @@ h1 {
     color: var(--foreground-primary);
 }
 
+h2 {
+    text-align: center;
+    color: var(--foreground-primary);
+    margin-bottom: 35px;
+}
+
+span {
+    color: var(--foreground-primary);
+}
 
 label {
     margin: 18px 0 6px 6px;
@@ -43,8 +52,7 @@ textarea::placeholder {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-    width: 1400px;
-
+    align-items: center;
     padding: 0;
 }
 
@@ -96,48 +104,50 @@ textarea::placeholder {
     }
 }
 
+.content-container {
+    width: 1400px;
+    background-color: var(--background-form);
+    border-radius: 10px;
+    margin-top: 60px;
+    padding: 50px;
+}
+
 .table {
     table-layout: fixed;
     border-collapse:collapse;
-    border-radius: 10px;
     vertical-align: middle;
     margin-bottom: 35px;
 }
 
+tr {
+    &:first-child th,
+    &:first-child td {
+        border-top: 1px solid var(--border-table);
+    }
+}
+
 th,
 td {
-    padding: 12px 25px !important;
+    justify-content: space-between;
+    padding: 20px 20px !important;
     background-color: var(--background-table) !important;
     border-bottom: 1px solid var(--border-table);
+
+    &:first-child {
+        padding-left: 40px !important;
+    }
+
+    &:last-child {
+        padding-right: 40px !important;
+    }
 }
 
 th {
     color: var(--foreground-table-header) !important;
-    padding: 14px 25px !important;
 }
 
 td {
     color: var(--foreground-table-data) !important;
-}
-
-th:first-child {
-    border-top-left-radius: 10px;
-}
-
-th:last-child {
-    border-top-right-radius: 10px;
-}
-
-tr:last-child td {
-    border: none;
-}
-
-tr:last-of-type td:first-child {
-    border-bottom-left-radius: 10px;
-}
-
-tr:last-of-type td:last-child {
-    border-bottom-right-radius: 10px;
 }
 
 .btn {
@@ -176,6 +186,25 @@ tr:last-of-type td:last-child {
         background-color: var(--background-button-danger-hover) !important;
         border: 1px solid var(--border-button-danger-hover) !important;
     }
+}
+
+.btn-danger-hover {
+    &:hover {
+        color: var(--foreground-button-danger-hover) !important;
+        background-color: var(--background-button-danger-hover) !important;
+        border: 1px solid var(--border-button-danger-hover) !important;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.button-action-container {
+    display: flex;
+    gap: 20px;
 }
 
 .form-control {

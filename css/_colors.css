@@ -50,8 +50,8 @@
     --background-button-hover:        var(--gray-700);
     --background-button-accent:       var(--orange-500);
     --background-button-accent-hover: var(--orange-700);
-    --background-button-danger:       var(--red-800); /*TODO*/
-    --background-button-danger-hover: var(--red-900); /*TODO*/
+    --background-button-danger:       var(--red-800);
+    --background-button-danger-hover: var(--red-900);
     --background-form:                var(--gray-900);
     --background-input:               var(--gray-800);
 
@@ -62,8 +62,8 @@
     --border-button-hover:        var(--background-button-hover);
     --border-button-accent:       transparent;
     --border-button-accent-hover: var(--background-button-accent-hover);
-    --border-button-danger:       transparent;                           /*TODO*/
-    --border-button-danger-hover: var(--background-button-danger-hover); /*TODO*/
+    --border-button-danger:       transparent;
+    --border-button-danger-hover: var(--background-button-danger-hover);
     --border-accent:              var(--orange-500);
     --border-error:               var(--red-500);
 
@@ -77,8 +77,8 @@
     --foreground-button-hover:        var(--gray-100);
     --foreground-button-accent:       var(--gray-900);
     --foreground-button-accent-hover: var(--gray-900);
-    --foreground-button-danger:       var(--gray-100); /*TODO*/
-    --foreground-button-danger-hover: var(--gray-100); /*TODO*/
+    --foreground-button-danger:       var(--gray-100);
+    --foreground-button-danger-hover: var(--gray-100);
     --foreground-accent:              var(--orange-500);
     --foreground-label:               var(--gray-300);
     --foreground-input:               var(--gray-200);

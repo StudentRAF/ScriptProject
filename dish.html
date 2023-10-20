@@ -30,38 +30,29 @@
             </ul>
         </nav>
         <main class="container-fluid">
-            <form id="form" onsubmit="return submitForm(this.value)" method="post" class="form"><!--action="https://postman-echo.com/post"-->
-                <div class="form-container">
+            <div class="content-container">
+                <form id="form" onsubmit="return saveChanges()" method="post" class="form">
                     <h2>Uređivanje jela</h2>
-                    <!-- Name -->
                     <label for="dish-name">Naziv:</label>
                     <input id="dish-name" name="dish-name" placeholder="Naziv jela" class="form-control">
-                    <!-- Description -->
                     <label for="description">Opis:</label>
                     <textarea id="description" name="description" placeholder="Opis jela, namirnice, alergeni itd. (opciono)" class="form-control" rows="5"></textarea>
-                    <!-- Category and Price -->
                     <div class="row">
-                        <!-- Category -->
                         <div class="col-6">
                             <label for="category">Kategorija:</label>
                             <select id="category" name="category" class="form-select"></select>
                         </div>
-                        <!-- Price -->
                         <div class="col-6">
                             <label for="price">Cena:</label>
                             <input id="price" name="price" type="number" placeholder="Cena RSD" class="form-control">
                         </div>
                     </div>
                     <div class="button-container">
-                        <!-- Confirm -->
-                        <button class="btn btn-accent" onclick="this.form.value = this.value;" type="submit" value="SAVE">Sačuvaj</button>
-                        <!-- Delete -->
-                        <button class="btn btn-danger" onclick="this.form.value = this.value;" type="submit" value="REMOVE">Obriši</button>
-                        <!-- Back remove?-->
+                        <button class="btn btn-accent" type="submit">Sačuvaj</button>
                         <a class="btn" href="dishes.html">Nazad</a>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </main>
     </body>
 </html>

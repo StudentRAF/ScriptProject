@@ -1,61 +1,20 @@
 @import "_colors.css";
 
-h2 {
-    text-align: center;
-    color: var(--foreground-primary);
-    margin-bottom: 35px;
-}
-
-th {
-    padding: 20px 75px !important;
-}
 td {
-    padding: 20px 75px 20px 20px !important;
-
-}
-tr:first-child {
-    > td,
-    > th {
-        border-top: 1px solid var(--border-table);
-    }
+    width: 370px;
 }
 
-tr:last-child {
-    > td,
-    > th {
-        border-bottom: 1px solid var(--border-table);
-    }
+.content-container {
+    width: 800px;
 }
 
-.container-fluid {
-    width: 1000px;
-}
-
-.form-container {
-    padding: 60px;
-    background-color: var(--background-form);
-    border-radius: 10px;
-
-    margin-top: 60px;
-}
-
-.table-options {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
+.button-container {
+    justify-content: flex-end;
+    margin-top: 30px;
 }
 
 .form-select {
-    width: 250px;
-    background-color: var(--gray-800) !important;
-    border-color: transparent;
-    color: var(--foreground-input);
-}
-
-.form-select:focus {
-    box-shadow: none;
-    border-color: var(--border-accent);
-    color: var(--foreground-input-active);
+    width: 280px;
 }
 
 ul {

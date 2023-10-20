@@ -33,15 +33,6 @@ const generatePriceValue = () => {
     elementPrice.value = dish.price.toString();
 }
 
-const submitForm = (value) => {
-    return submitValues[value]();
-}
-
-const submitValues = {
-    SAVE:   () => { return saveChanges() },
-    REMOVE: () => { return removeDish()  }
-}
-
 const saveChanges = () => {
     if (!validate())
         return false;
@@ -53,16 +44,6 @@ const saveChanges = () => {
     editedDish.name = document.getElementById("dish-name").value.toString();
     editedDish.category = document.getElementById("category").value.toString();
     editedDish.price = parseInt(document.getElementById("price").value.toString());
-
-    updateCookie("dishes", dishes);
-
-    return true;
-}
-
-const removeDish = () => {
-    let dishes = readJSONCookie("dishes");
-
-    dishes.splice(dishes.findIndex((item) => { return item.id === dish.id }), 1);
 
     updateCookie("dishes", dishes);
 

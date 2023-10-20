@@ -1,4 +1,4 @@
-const submitForm = (value) => {
+const saveChanges = () => {
     if (!validate())
         return false;
 

@@ -1,7 +1,16 @@
 @import "_colors.css";
 
-.action-edit-dish {
-    margin-left: 20px;
+th:nth-child(3) {
+    width: 280px;
+}
+
+th:nth-child(4) {
+    width: 280px;
+}
+
+th:last-child,
+td:last-child {
+    padding-right: 30px !important;
 }
 
 .table-options {
