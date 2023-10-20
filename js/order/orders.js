@@ -19,17 +19,16 @@ const appendRow = (table, order) => {
     rowData.forEach((cellData) => {
         cell = row.insertCell(-1);
         cell.innerHTML = cellData.innerHTML(order);
-        cell.classList.add(cellData.classNames);
     });
 }
 
 const rowData = [
-    { innerHTML: (order) => { return order.time.toLocaleString() }, classNames: "column-time"    },
-    { innerHTML: (order) => { return generateOrderStatus(order)  }, classNames: "column-status"  },
-    { innerHTML: (order) => { return generateOrderPrice(order)   }, classNames: "column-price"   },
-    { innerHTML: (order) => { return order.address               }, classNames: "column-address" },
-    { innerHTML: (order) => { return generateOrderDishes(order)  }, classNames: "column-content" },
-    { innerHTML: (order) => { return generateActionColumn(order) }, classNames: "column-action"  }
+    { innerHTML: (order) => { return order.time.toLocaleString() } },
+    { innerHTML: (order) => { return generateOrderStatus(order)  } },
+    { innerHTML: (order) => { return generateOrderPrice(order)   } },
+    { innerHTML: (order) => { return order.address               } },
+    { innerHTML: (order) => { return generateOrderDishes(order)  } },
+    { innerHTML: (order) => { return generateActionColumn(order) } }
 ];
 
 const generateOrderStatus = (order) => {

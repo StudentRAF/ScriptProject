@@ -3,10 +3,10 @@ const categories = readJSONCookie("categories");
 const dishes = readJSONCookie("dishes");
 
 const rowData = [
-    { innerHTML: (dish) => { return dish.name                  }, classNames: "column-name"     },
-    { innerHTML: (dish) => { return generateDishCategory(dish) }, classNames: "column-category" },
-    { innerHTML: (dish) => { return dish.price                 }, classNames: "column-price"    },
-    { innerHTML: (dish) => { return generateActionColumn(dish) }, classNames: "column-action"   }
+    { innerHTML: (dish) => { return dish.name                  } },
+    { innerHTML: (dish) => { return generateDishCategory(dish) } },
+    { innerHTML: (dish) => { return dish.price                 } },
+    { innerHTML: (dish) => { return generateActionColumn(dish) } }
 ];
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -22,7 +22,6 @@ const appendRow = (table, dish) => {
     rowData.forEach((cellData) => {
         cell = row.insertCell(-1);
         cell.innerHTML = cellData.innerHTML(dish);
-        cell.classList.add(cellData.classNames);
     });
 }
 
