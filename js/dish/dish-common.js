@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // Add form events
     document.getElementById("form").action = "dishes.html";
-    document.getElementById("form").method = "post";
 });
 
 const generateDishCategoryOption = (category) => {
