@@ -1,3 +1,5 @@
+let categories = readJSONCookie("categories");
+
 document.addEventListener("DOMContentLoaded", (event) => {
     // Add on focus event
     document.getElementById("dish-name").onfocus = clear;
@@ -6,17 +8,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Read category options
     let categoryElement = document.getElementById("category");
 
-    let categories = readJSONCookie("Category");
-    Object.keys(categories).forEach((key) => { categoryElement.appendChild(generateCategoryOption(categories[key])) });
+    categories.forEach((category) => { categoryElement.appendChild(generateDishCategoryOption(category)) });
 
     // Add form events
     document.getElementById("form").action = "dishes.html";
     document.getElementById("form").method = "post";
 });
 
-const generateCategoryOption = (category) => {
+const generateDishCategoryOption = (category) => {
     let option = document.createElement("option");
-    option.innerHTML = category;
+
+    option.dataset.id = category.id;
+    option.innerHTML  = category.name;
 
     return option;
 }

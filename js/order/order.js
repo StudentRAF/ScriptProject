@@ -1,61 +1,64 @@
+let orders = readJSONCookie("orders");
+
+let statuses = readJSONCookie("statuses");
+
+let dishes = readJSONCookie("dishes");
+
 let order;
 
 document.addEventListener("DOMContentLoaded", (event) => {
     const parameters = new URLSearchParams(window.location.search);
 
     let id = parseInt(parameters.get("id"));
-    let orders = readJSONCookie("orders");
 
     order = orders.find((item) => { return item.id === id });
 
-    generateIDValue();
-    generateTimeValue();
-    generateAddressValue();
-    generateDetailsValue();
-    generateStatusValue();
-    generatePriceValue();
+    generateOrderID();
+    generateOrderTime();
+    generateOrderAddress();
+    generateOrderDishes();
+    generateOrderStatus();
+    generateOrderPrice();
 });
 
-const generateIDValue = () => {
+const generateOrderID = () => {
     let elementID = document.getElementById("order-id");
 
     elementID.innerText = order.id;
 }
 
-const generateTimeValue = () => {
+const generateOrderTime = () => {
     let elementTime = document.getElementById("order-time");
 
     elementTime.innerText = order.time;
 }
 
-const generateStatusValue = () => {
+const generateOrderStatus = () => {
     let elementStatus = document.getElementById("order-status");
 
-    let status = readJSONCookie("Status");
-    Object.keys(status).forEach((key) => { elementStatus.appendChild(generateStatusOption(status[key])) });
+    statuses.forEach((status) => { elementStatus.appendChild(generateOrderStatusOption(status) )} );
 
-    elementStatus.selectedIndex = Object.values(status).indexOf(order.status);
+    elementStatus.selectedIndex = statuses.findIndex((status) => { return status.id === order.status });
 }
 
-const generateStatusOption = (status) => {
+const generateOrderStatusOption = (status) => {
     let option = document.createElement("option");
 
-    option.innerHTML = status;
+    option.dataset.id = status.id;
+    option.innerHTML  = status.name;
 
     return option;
 }
 
-const generateDetailsValue = () => {
+const generateOrderDishes = () => {
     let elementDetails = document.getElementById("order-details");
 
-    const dishes = readJSONCookie("dishes");
-
     order.dishes.forEach((dishID, index) => {
-        elementDetails.appendChild(generateDetailsItem(dishes.find((item) => { return item.id === dishID }), order.quantities[index]));
+        elementDetails.appendChild(generateOrderDish(dishes.find((item) => { return item.id === dishID }), order.quantities[index]));
     })
 }
 
-const generateDetailsItem = (dish, quantity) => {
+const generateOrderDish = (dish, quantity) => {
     let item = document.createElement("li");
 
     item.innerText = dish.name + " x" + quantity;
@@ -63,17 +66,16 @@ const generateDetailsItem = (dish, quantity) => {
     return item;
 }
 
-const generateAddressValue = () => {
+const generateOrderAddress = () => {
     let elementAddress = document.getElementById("order-address");
 
     elementAddress.innerText = order.address;
 }
 
-const generatePriceValue = () => {
+const generateOrderPrice = () => {
     let totalPrice = 0;
     let elementPrice = document.getElementById("order-price");
 
-    let dishes = readJSONCookie("dishes");
 
     order.dishes.forEach((dishID, index) => {
         let dish = dishes.find((item) => { return item.id === dishID });
@@ -85,12 +87,9 @@ const generatePriceValue = () => {
 }
 
 const saveChanges = () => {
-    const elementStatus = document.getElementById("order-status");
+    const statusElement = document.getElementById("order-status");
 
-    let orders = readJSONCookie("orders");
-    let editOrder = orders.find((item) => { return item.id === order.id });
-
-    editOrder.status = elementStatus.value;
+    orders.find((item) => { return item.id === order.id }).status = parseInt(statusElement[statusElement.selectedIndex].dataset.id);
 
     updateCookie("orders", orders);
 

@@ -4,35 +4,35 @@ window.onload = () => {
 
     deleteAllCookies();
 
-    const Category = {
-        PIZZA:     "Pizza",
-        SANDWICH : "Sendvič"
-    };
+    const statuses = [
+        { id: 0, name: "Nova"       },
+        { id: 1, name: "Prihvaćena" },
+        { id: 2, name: "Odbijena"   },
+        { id: 3, name: "U pripremi" },
+        { id: 4, name: "U dostavi"  },
+        { id: 5, name: "Završeno"   },
+    ];
 
-    const Status = {
-        NEW:         "Nova",
-        ACCEPTED:    "Prihvaćena",
-        DECLINED:    "Odbijena",
-        PREPARATION: "U pripremi",
-        SENT:        "U dostavi",
-        DELIVERED:   "Završeno"
-    };
+    const categories = [
+        { id: 0, name: "Pizza"   },
+        { id: 1, name: "Sendvič" }
+    ];
 
     const orders = [
-        { id: 0, time: new Date().toLocaleString(), status: Status.NEW,      address: "Kralja Milana 12/2", dishes: [ 0, 1, 2 ], quantities: [ 1, 1, 1 ] },
-        { id: 1, time: new Date().toLocaleString(), status: Status.ACCEPTED, address: "Knez Mihailova 6/6", dishes: [ 2 ],       quantities: [ 3 ]       }
+        { id: 0, time: new Date().toLocaleString(), status: 0, address: "Kralja Milana 12/2", dishes: [ 0, 1, 2 ], quantities: [ 1, 1, 1 ] },
+        { id: 1, time: new Date().toLocaleString(), status: 1, address: "Knez Mihailova 6/6", dishes: [ 2 ],       quantities: [ 3 ]       }
     ];
 
     const dishes = [
-        { id: 0, name: "Kaprićoza-velika", category: Category.PIZZA,    price: 1000 },
-        { id: 1, name: "Kaprićoza-mala",   category: Category.PIZZA,    price:  600 },
-        { id: 2, name: "Prezident",        category: Category.SANDWICH, price:   99 }
+        { id: 0, name: "Kaprićoza-velika", category: 0,    price: 1000 },
+        { id: 1, name: "Kaprićoza-mala",   category: 0,    price:  600 },
+        { id: 2, name: "Prezident",        category: 1,    price:   99 }
     ];
 
-    addCookie("orders",   orders);
-    addCookie("dishes",   dishes);
-    addCookie("Category", Category);
-    addCookie("Status",   Status);
+    addCookie("orders",     orders);
+    addCookie("dishes",     dishes);
+    addCookie("categories", categories);
+    addCookie("statuses",   statuses);
 }
 
 function deleteAllCookies() {
@@ -46,7 +46,7 @@ function deleteAllCookies() {
     }
 }
 
-function listCookies () { // Debug function
+function listCookies() { // Debug function
     let cookies = '';
 
     document.cookie.split(';').forEach((cookie, index) => { cookies += (index + 1) + '.' + (cookie[0] === ' ' ? '' : ' ') + cookie + '\n'});
@@ -74,10 +74,11 @@ function updateCookie(name, object) {
 }
 
 function readJSONCookie(name) {
-    let result = document.cookie.match(new RegExp(name + "=([^;]+)"));
+    let resultRegex = document.cookie.match(new RegExp(name + "=([^;]+)"));
+    let result;
 
     try {
-        result && (result = JSON.parse(result[1]));
+        resultRegex && (result = JSON.parse(resultRegex[1]));
     }
     catch (exception) {
         return null;
