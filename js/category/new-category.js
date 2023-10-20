@@ -6,7 +6,7 @@ const createCategory = () => {
 
     const object = Object.fromEntries(new FormData(document.forms["form"]));
 
-    const categoryID   = categories.length;
+    const categoryID   = categories[categories.length - 1].id + 1;
     const categoryName = object["category-name"].toString();
 
     categories.push({ id: categoryID, name: categoryName });

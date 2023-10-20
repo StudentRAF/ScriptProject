@@ -8,7 +8,7 @@ const saveChanges = () => {
 
     const object = Object.fromEntries(new FormData(document.forms["form"]));
 
-    const dishID       = dishes.length;
+    const dishID       = dishes[dishes.length - 1].id + 1;
     const dishName     = object["dish-name"].toString();
     const dishCategory = categories.find((category) => { return category.name === object["category"] }).id;
     const dishPrice    = parseInt(object["price"].toString());
