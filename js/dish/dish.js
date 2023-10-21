@@ -1,5 +1,7 @@
 categories = readJSONCookie("categories");
 
+ingredients = readJSONCookie("ingredients");
+
 let dishes = readJSONCookie("dishes");
 
 let dish;
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     generateNameValue();
     generateCategoryValue();
     generatePriceValue();
+    generateIngredients();
 });
 
 const generateNameValue = () => {
@@ -34,16 +37,30 @@ const generatePriceValue = () => {
     elementPrice.value = dish.price.toString();
 }
 
+const generateIngredients = () => {
+    ingredients.filter((item) => { return dish.ingredients.includes(item.id) }).forEach((item) => {
+        addIngredient(item);
+        disableIngredient(item);
+    });
+}
+
 const saveChanges = () => {
     if (!validate())
         return false;
 
+    let ingredientsListElement = document.getElementById("ingredient-list");
+
     let editedDish = dishes.find((item) => { return item.id === dish.id });
     let elementCategory = document.getElementById("category");
+    let dishIngredients = [];
 
-    editedDish.name = document.getElementById("dish-name").value;
-    editedDish.category = parseInt(elementCategory[elementCategory.selectedIndex].dataset.id);
-    editedDish.price = parseInt(document.getElementById("price").value);
+    Array.from(ingredientsListElement.children).forEach((item) => { dishIngredients.push(parseInt(item.dataset.id)) });
+    dishIngredients.sort((first, second) => { return first - second });
+
+    editedDish.name        = document.getElementById("dish-name").value;
+    editedDish.category    = parseInt(elementCategory[elementCategory.selectedIndex].dataset.id);
+    editedDish.price       = parseInt(document.getElementById("price").value);
+    editedDish.ingredients = dishIngredients;
 
     updateCookie("dishes", dishes);
 

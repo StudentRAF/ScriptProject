@@ -42,7 +42,7 @@
                     <label for="dish-name">Naziv:</label>
                     <input id="dish-name" name="dish-name" placeholder="Naziv jela" class="form-control">
                     <label for="description">Opis:</label>
-                    <textarea id="description" name="description" placeholder="Opis jela, namirnice, alergeni itd. (opciono)" class="form-control" rows="5"></textarea>
+                    <textarea id="description" name="description" placeholder="Opis jela, namirnice, alergeni itd. (opciono)" class="form-control" rows="4"></textarea>
                     <div class="row">
                         <div class="col-6">
                             <label for="category">Kategorija:</label>
@@ -53,6 +53,14 @@
                             <input id="price" name="price" type="number" placeholder="Cena RSD" class="form-control">
                         </div>
                     </div>
+                    <label for="ingredient">Sastojci:</label>
+                    <div class="input-group">
+                        <select id="ingredient" name="ingredient" class="form-select"></select>
+                        <button id="ingredient-button" class="btn" type="button" onclick="submitIngredient()">
+                            <img src="resources/Plus.svg" alt=""/>
+                        </button>
+                    </div>
+                    <div id="ingredient-list" class="ingredient-container"></div>
                     <div class="button-container">
                         <button class="btn btn-accent" type="submit">Sačuvaj</button>
                         <a class="btn" href="dishes.html">Nazad</a>

@@ -32,9 +32,9 @@ window.onload = () => {
     ];
 
     const dishes = [
-        { id: 0, name: "Kaprićoza-velika", category: 0,    price: 1000 },
-        { id: 1, name: "Kaprićoza-mala",   category: 0,    price:  600 },
-        { id: 2, name: "Prezident",        category: 1,    price:   99 }
+        { id: 0, name: "Kaprićoza-velika", category: 0, ingredients: [],   price: 1000 },
+        { id: 1, name: "Kaprićoza-mala",   category: 0, ingredients: [],   price:  600 },
+        { id: 2, name: "Prezident",        category: 1, ingredients: [],   price:   99 }
     ];
 
     addCookie("orders",      orders);
