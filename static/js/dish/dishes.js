@@ -13,6 +13,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let table = document.getElementById("dish-list");
 
     dishes.forEach((dish) => appendRow(table, dish));
+
+    fetch('/dishesList').then(response => {
+        response.json().then(data => {
+            console.log(data);
+            data.forEach(dish => {
+                console.log(dish);
+                appendRow(table, dish);
+            });
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });
 
 const appendRow = (table, dish) => {

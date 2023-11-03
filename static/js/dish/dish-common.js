@@ -4,7 +4,7 @@ let ingredients = readJSONCookie("ingredients");
 
 document.addEventListener("DOMContentLoaded", (event) => {
     // Add on focus event
-    document.getElementById("dish-name").onfocus = clear;
+    document.getElementById("name").onfocus = clear;
     document.getElementById("price").onfocus     = clear;
 
     // Read category and ingredient options
@@ -47,7 +47,7 @@ const generateDishIngredientOption = (ingredient) => {
 }
 
 const clear = () => {
-    document.getElementById("dish-name").classList.remove("error");
+    document.getElementById("name").classList.remove("error");
     document.getElementById("price").classList.remove("error");
 }
 
@@ -55,7 +55,7 @@ const clear = () => {
 const validate = () => {
     let valid = true;
 
-    let dish = document.getElementById("dish-name");
+    let dish = document.getElementById("name");
     if (dish.value.length < 3) {
         dish.classList.add("error");
         valid = false;

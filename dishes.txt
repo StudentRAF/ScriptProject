@@ -1,2 +1,0 @@
-{"dish-name":"345","description":"","category":"Pizza","price":"235","ingredient":"Kačkavalj"}
-{"dish-name":"Test Sendvich","description":"Desc iwoear oaiwer jaw","category":"Sendvič","price":"23545","ingredient":"Kačkavalj"}

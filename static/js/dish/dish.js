@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 const generateNameValue = () => {
-    let elementName = document.getElementById("dish-name");
+    let elementName = document.getElementById("name");
 
     elementName.value = dish.name;
 }
@@ -57,7 +57,7 @@ const saveChanges = () => {
     Array.from(ingredientsListElement.children).forEach((item) => { dishIngredients.push(parseInt(item.dataset.id)) });
     dishIngredients.sort((first, second) => { return first - second });
 
-    editedDish.name        = document.getElementById("dish-name").value;
+    editedDish.name        = document.getElementById("name").value;
     editedDish.category    = parseInt(elementCategory[elementCategory.selectedIndex].dataset.id);
     editedDish.price       = parseInt(document.getElementById("price").value);
     editedDish.ingredients = dishIngredients;
