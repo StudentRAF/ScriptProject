@@ -2,6 +2,11 @@ categories = readJSONCookie("categories");
 
 let dishes = readJSONCookie("dishes");
 
+document.addEventListener("DOMContentLoaded", (event) => {
+    document.getElementById("form").action = "/new-dish";
+    document.getElementById("form").method = "post";
+});
+
 const createDish = () => {
     if (!validate())
         return false;

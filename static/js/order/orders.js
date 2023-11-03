@@ -57,5 +57,5 @@ const generateDish = (dish, quantity) => {
 }
 
 const generateActionColumn = (order) => {
-    return `<a class="btn btn-dark" href="order.html?id=${order.id}">Detalji</a>`;
+    return `<a class="btn btn-dark" href="/order?id=${order.id}">Detalji</a>`;
 }

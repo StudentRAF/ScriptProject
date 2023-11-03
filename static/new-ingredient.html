@@ -5,45 +5,45 @@
         <title>Script Project</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=DM+Sans:wght@400;500;700&display=swap' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
-        <link href="css/ingredient/ingredient.css" rel="stylesheet">
+        <link href="css/ingredient/new-ingredient.css" rel="stylesheet">
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/database.js"></script>
         <script src="js/script.js"></script>
         <script src="js/ingredient/ingredient-common.js"></script>
-        <script src="js/ingredient/ingredient.js"></script>
+        <script src="js/ingredient/new-ingredient.js"></script>
     </head>
     <body>
         <nav class="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Dashboard</a>
+                    <a class="nav-link" href="/">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dishes.html">Ponuda</a>
+                    <a class="nav-link" href="/dishes">Ponuda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="orders.html">Narudžbine</a>
+                    <a class="nav-link" href="/orders">Narudžbine</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="categories.html">Kategorije</a>
+                    <a class="nav-link" href="/categories">Kategorije</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ingredients.html">Sastojci</a>
+                    <a class="nav-link" href="/ingredients">Sastojci</a>
                 </li>
             </ul>
         </nav>
         <main class="container-fluid">
             <div class="content-container">
-                <form id="form" onsubmit="return saveChanges()" class="form">
-                    <h2>Uređivanje sastojka</h2>
+                <form id="form" onsubmit="return createIngredient()" class="form">
+                    <h2>Novi sastojak</h2>
                     <label for="ingredient-name">Naziv:</label>
                     <input id="ingredient-name" name="ingredient-name" placeholder="Naziv sastojka" class="form-control">
                     <div class="button-container">
-                        <button class="btn btn-accent">Sačuvaj</button>
-                        <a class="btn" href="ingredients.html">Nazad</a>
+                        <button class="btn btn-accent">Dodaj</button>
+                        <a class="btn" href="/ingredients">Nazad</a>
                     </div>
                 </form>
             </div>

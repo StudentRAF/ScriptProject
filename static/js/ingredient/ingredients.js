@@ -23,7 +23,7 @@ const appendRow = (table, ingredient) => {
 
 const generateActionColumn = (ingredient) => {
     return `<div class="button-action-container">`                                                                 +
-               `<a class="btn btn-dark" href="ingredient.html?id=${ingredient.id}">Izmeni</a>`                     +
+               `<a class="btn btn-dark" href="/ingredient?id=${ingredient.id}">Izmeni</a>`                     +
                `<button class="btn btn-danger-hover" onclick="removeIngredient(${ingredient.id})">Ukloni</button>` +
            `</div>`;
 }

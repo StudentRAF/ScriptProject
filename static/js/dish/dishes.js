@@ -31,7 +31,7 @@ const generateDishCategory = (dish) => {
 
 const generateActionColumn = (dish) => {
     return `<div class="button-action-container">`                                                       +
-               `<a class="btn btn-dark" href="dish.html?id=${dish.id}">Izmeni</a>`                       +
+               `<a class="btn btn-dark" href="/dish?id=${dish.id}">Izmeni</a>`                       +
                `<button class="btn btn-danger-hover" onclick="removeDish(${dish.id})">Ukloni</button>`   +
            `</div>`;
 }

@@ -1,21 +1,21 @@
-let ingredients = readJSONCookie("ingredients");
+let categories = readJSONCookie("categories");
 
 document.addEventListener("DOMContentLoaded", (event) => {
     // Add on focus event
-    document.getElementById("ingredient-name").onfocus = clear;
+    document.getElementById("category-name").onfocus = clear;
 
     // Add form events
-    document.getElementById("form").action = "ingredients.html";
+    document.getElementById("form").action = "/categories";
 });
 
 const clear = () => {
-    document.getElementById("ingredient-name").classList.remove("error");
+    document.getElementById("category-name").classList.remove("error");
 }
 
 const validate = () => {
     let valid = true;
 
-    let category = document.getElementById("ingredient-name");
+    let category = document.getElementById("category-name");
     if (category.value.length < 3) {
         category.classList.add("error");
         valid = false;

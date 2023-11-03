@@ -23,7 +23,7 @@ const appendRow = (table, category) => {
 
 const generateActionColumn = (category) => {
     return `<div class="button-action-container">`                                                             +
-               `<a class="btn btn-dark" href="category.html?id=${category.id}">Izmeni</a>`                     +
+               `<a class="btn btn-dark" href="/category?id=${category.id}">Izmeni</a>`                     +
                `<button class="btn btn-danger-hover" onclick="removeCategory(${category.id})">Ukloni</button>` +
            `</div>`;
 }

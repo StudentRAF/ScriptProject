@@ -1,5 +1,5 @@
 window.onload = () => {
-    if (!document.location.pathname.endsWith("index.html"))
+    if (!document.location.pathname.endsWith(""))
         return;
 
     deleteAllCookies();
@@ -56,9 +56,9 @@ function deleteAllCookies() {
 }
 
 function listCookies() { // Debug function
-    let cookies = '';
+    let cookies = "";
 
-    document.cookie.split(';').forEach((cookie, index) => { cookies += (index + 1) + '.' + (cookie[0] === ' ' ? '' : ' ') + cookie + '\n'});
+    document.cookie.split(";").forEach((cookie, index) => { cookies += (index + 1) + "." + (cookie[0] === " " ? "" : " ") + cookie + "\n"});
 
     return cookies;
 }

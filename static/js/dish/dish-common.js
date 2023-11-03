@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ingredients.forEach((ingredient) => { ingredientElement.appendChild(generateDishIngredientOption(ingredient)) });
 
     // Add form events
-    document.getElementById("form").action = "dishes.html";
+    document.getElementById("form").action = "/dishes";
 });
 
 const generateEmptyDishCategoryOption = () => {
