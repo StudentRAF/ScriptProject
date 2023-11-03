@@ -1,9 +1,14 @@
 const express    = require("express");
 const path       = require("path");
+const fs         = require("fs");
+const bodyParser = require("body-parser");
+const joi        = require("joi");
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const port = 8080;
 const app = express();
 
+post();
 routing();
 
 app.use(express.static(path.join(__dirname, "static")));
@@ -30,7 +35,21 @@ function routing() {
     });
 
     app.get("/dishes", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "dishes.html"));
+        fs.readFile('dishes.txt', 'utf8', (error, data) => {
+            if (error) {
+                console.error('Error reading file:', error);
+                response.status(500).send({ error: "Error" });
+                return;
+            }
+            const dishes = [];
+
+            const dishesData = data.split('\n');
+            dishesData.splice(-1);
+
+            dishesData.forEach(dishData => dishes.push(JSON.parse(dishData)));
+
+            response.sendFile(path.join(__dirname, "static", "dishes.html"));
+        });
     });
 
     app.get("/new-dish", (request, response) => {
@@ -61,3 +80,30 @@ function routing() {
         response.sendFile(path.join(__dirname, "static", "new-ingredient.html"));
     });
 }
+
+function post() {
+    app.post("/new-dish", urlencodedParser, (request, response) => {
+        const shema = joi.object().keys({
+            "dish-name": joi.string().trim().min(3).max(25).required(),
+            description: joi.string().trim().allow(""),
+            category: joi.string().trim().min(3).required(),
+            price: joi.number().greater(0).required(),
+            ingredient: joi.allow()
+        });
+
+        console.log(request.body);
+        const {error, success} = shema.validate(request.body);
+
+        if (error) {
+            response.send("Error: " + error.details[0].message);
+            return;
+        }
+
+        fs.appendFile("dishes.txt",
+            JSON.stringify(request.body) + "\n",
+            "utf8",
+            () => response.send("The message has been sent, please wait for a reply.")
+        );
+    });
+}
+
