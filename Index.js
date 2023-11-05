@@ -3,31 +3,14 @@ const path       = require("path");
 const fs         = require("fs");
 const bodyParser = require("body-parser");
 const joi        = require("joi");
+
+const port             = 8080;
+const app              = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-const port = 8080;
-const app = express();
-
+route();
+fetch();
 post();
-routing();
-
-app.get("/dishesList", (request, response) => {
-    fs.readFile('dishes.txt', 'utf8', (error, data) => {
-        if (error) {
-            console.error('Error reading file:', error);
-            response.status(500).send({ error: "Error" });
-            return;
-        }
-        const dishes = [];
-
-        const dishesData = data.split('\n');
-        dishesData.splice(-1);
-
-        dishesData.forEach(dishData => dishes.push(JSON.parse(dishData)));
-
-        response.json(dishes);
-    });
-})
 
 app.use(express.static(path.join(__dirname, "static")));
 
@@ -35,78 +18,89 @@ app.listen(port, () => {
     console.log(`Your server available at http://localhost:${port}`)
 });
 
-function routing() {
+function route() {
     app.get("/", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "index.html"));
+        response.sendFile(path.join(__dirname, "static", "html/index.html"));
     });
 
-    app.get("/order", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "order.html"));
+    app.get("/titles", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/title/titles.html"));
     });
 
-    app.get("/orders", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "orders.html"));
+    app.get("/title/edit", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/title/title.html"));
     });
 
-    app.get("/dish", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "dish.html"));
+    app.get("/title/new", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/title/new-title.html"));
     });
 
-    app.get("/dishes", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "dishes.html"));
+    app.get("/actors", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/actor/actors.html"));
     });
 
-    app.get("/new-dish", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "new-dish.html"));
+    app.get("/actor/edit", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/actor/actor.html"));
     });
 
-    app.get("/category", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "category.html"));
+    app.get("/actor/new", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/actor/new-actor.html"));
     });
 
-    app.get("/categories", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "categories.html"));
+    app.get("/genres", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/genre/genres.html"));
     });
 
-    app.get("/new-category", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "new-category.html"));
+    app.get("/genre/edit", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/genre/genre.html"));
     });
 
-    app.get("/ingredient", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "ingredient.html"));
-    });
-
-    app.get("/ingredients", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "ingredients.html"));
-    });
-
-    app.get("/new-ingredient", (request, response) => {
-        response.sendFile(path.join(__dirname, "static", "new-ingredient.html"));
+    app.get("/genre/new", (request, response) => {
+        response.sendFile(path.join(__dirname, "static", "html/genre/new-genre.html"));
     });
 }
 
 function post() {
-    app.post("/new-dish", urlencodedParser, (request, response) => {
-        const shema = joi.object().keys({
-            "name": joi.string().trim().min(3).max(25).required(),
-            description: joi.string().trim().allow(""),
-            category: joi.string().trim().min(3).required(),
-            price: joi.number().greater(0).required(),
-            ingredient: joi.allow()
+    app.post("/title/new", urlencodedParser, (request, response) => {
+        const scheme = joi.object().keys({
+            "title":        joi.string().trim().min(3).required(),
+            "description":  joi.string().trim().allow(""),
+            "release-date": joi.string().trim().min(3).required(),
+            "duration":     joi.number().greater(0).required(),
+            "genres":       joi.allow()
         });
 
-        const {error, success} = shema.validate(request.body);
+        const {error, success} = scheme.validate(request.body);
 
         if (error) {
             response.send("Error: " + error.details[0].message);
             return;
         }
 
-        fs.appendFile("dishes.txt",
+        fs.appendFile("titles.txt",
             JSON.stringify(request.body) + "\n",
             "utf8",
-            () => response.send("The message has been sent, please wait for a reply.")
+            () => response.redirect("/titles")
         );
     });
 }
 
+function fetch() {
+    app.get("/titles-all", (request, response) => {
+        fs.readFile("titles.txt", "utf8", (error, data) => {
+            if (error) {
+                console.error("Error reading file:", error);
+                response.status(500).send({ error: "Error" });
+                return;
+            }
+            const titles = [];
+
+            const titlesData = data.split("\n");
+            titlesData.splice(-1);
+
+            titlesData.forEach(titleData => titles.push(JSON.parse(titleData)));
+
+            response.json(titles);
+        });
+    });
+}

@@ -1,0 +1,11 @@
+@import "../_colors.css";
+
+.content-container {
+    width: 800px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}

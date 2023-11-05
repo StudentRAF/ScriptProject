@@ -235,3 +235,14 @@ td {
 .error {
     border: 1px solid var(--border-error) !important;
 }
+
+.datepicker {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: none;
+    padding: 10px !important;
+}
+
+.datepicker-dropdown:after {
+    border-bottom: 6px solid #000;
+}
