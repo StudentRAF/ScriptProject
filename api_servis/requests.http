@@ -1,0 +1,14 @@
+### All actors
+GET localhost:9000
+
+### Actor with id
+GET localhost:9000/actor/id:0
+
+### New actor
+POST localhost:9000/actor/
+
+### Put actor
+POST localhost:9000/actor/id:0
+
+### Delete actor
+DELETE localhost:9000/actor/id:0
