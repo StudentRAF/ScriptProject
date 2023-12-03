@@ -10,7 +10,7 @@ route.get("/", async (request, response) => {
         response.json("All genres");
     }
     catch(error){
-        console.log(error);
+        console.error(error);
         response.status(500).json({ error: "Error | All Genres | ...", data: error });
     }
 });

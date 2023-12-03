@@ -30,7 +30,7 @@ route.post("/", async (request, response) => {
         response.json(`New title with data: ${request.body}`);
     }
     catch(error){
-        console.log(error);
+        console.log(JSON.stringify({ error: `Error | New Title ${request.body} | ...`, data: error }));
         response.status(500).json({ error: `Error | New Title ${request.body} | ...`, data: error });
     }
 });

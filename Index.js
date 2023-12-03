@@ -15,7 +15,7 @@ post();
 app.use(express.static(path.join(__dirname, "static")));
 
 app.listen(port, () => {
-    console.log(`Your server available at http://localhost:${port}`)
+    console.info(`Your server available at http://localhost:${port}`)
 });
 
 function route() {
