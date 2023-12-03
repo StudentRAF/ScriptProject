@@ -3,22 +3,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.getElementById("duration").onfocus     = clear;
     document.getElementById("release-date").onfocus = clear;
 
-    let genreElement = document.getElementById("genre");
-
-    genreElement.appendChild(generateEmptyOption());
-
-    // Add form events
-    document.getElementById("form").action = "/title/new";
-    document.getElementById("form").method = "post";
+    generateGenreOptions();
 });
 
-const generateEmptyOption = () => {
+const generateGenreOptions = () => {
+    let genreElement = document.getElementById("genre");
+
+    generateEmptyOption(genreElement);
+
+    fetch("http://localhost:9090/genres").then(response => {
+        response.json().then(genres => genres.forEach(genre => generateGenreOption(genreElement, genre)));
+    }).catch(error => {
+        console.error("Error:", error);
+    });
+}
+
+const generateEmptyOption = (options) => {
     let option = document.createElement("option");
 
     option.dataset.id = "-1";
 
-    return option;
+    options.appendChild(option);
 };
+
+const generateGenreOption = (options, genre) => {
+    let option = document.createElement("option");
+
+    option.dataset.id = genre.id;
+    option.innerHTML  = genre.name;
+
+    options.appendChild(option);
+}
 
 const clear = () => {
     document.getElementById("title").classList.remove("error");
@@ -51,3 +66,60 @@ const validate = () => {
     return valid;
 }
 
+const submitGenre = () => {
+    let genreOption = document.getElementById("genre");
+    let genreID = parseInt(genreOption[genreOption.selectedIndex].dataset.id);
+
+    if (genreID < 0)
+        return;
+
+    fetch(`http://localhost:9090/genre/${genreID}`).then(response => {
+        response.json().then(genre => addGenre(genre));
+    }).catch(error => {
+        console.error("Error:", error);
+    });
+}
+
+const addGenre = (genre) => {
+    let genresElement = document.getElementById("genres");
+    let genreItem     = document.createElement("div");
+
+    genreItem.dataset.id = genre.id;
+    genreItem.classList.add("input-group");
+    genreItem.innerHTML = generateGenreItem(genre);
+
+    genresElement.appendChild(genreItem);
+
+    disableGenre(genre);
+}
+
+const generateGenreItem = (genre) => {
+    return `<span>${genre.name}</span>` +
+           `<input type="hidden" name="genres" value="${genre.id}"/>` +
+           `<button class="btn btn-danger-hover" onclick="removeGenre(${genre.id})" type="button">` +
+               `<img src="../../resources/Close.svg"  alt=""/>` +
+           `</button>`;
+}
+
+const removeGenre = (genreID) => {
+    let genresElement = document.getElementById("genres");
+
+    enableGenre(genreID);
+
+    Array.from(genresElement.children).find((item) => { return parseInt(item.dataset.id) === genreID }).remove();
+}
+
+const disableGenre = (genre) => {
+    let genreElement = document.getElementById("genre");
+    let index = Array.from(genreElement.children).findIndex((item) => { return parseInt(item.dataset.id) === genre.id });
+
+    genreElement[index].disabled = true;
+    genreElement.selectedIndex = 0;
+}
+
+const enableGenre = (genreID) => {
+    let genreElement = document.getElementById("genre");
+    Array.from(genreElement.children).find((item) => {
+        return parseInt(item.dataset.id) === genreID
+    }).disabled = false;
+}

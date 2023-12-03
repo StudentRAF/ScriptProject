@@ -1,0 +1,24 @@
+th:nth-child(2) {
+    width: 150px;
+}
+
+th:nth-child(3) {
+    width: 120px;
+}
+
+th:nth-child(3) {
+    width: 120px;
+}
+
+th:nth-child(4) {
+    width: 260px;
+}
+
+th:nth-child(5) {
+    width: 260px;
+}
+
+.cell-genre {
+    font-size: 15px;
+    margin-bottom: 4px;
+}

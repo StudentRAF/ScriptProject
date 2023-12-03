@@ -10,6 +10,7 @@
         <link href="../../css/actor/new-actor.css" rel="stylesheet">
 
         <script src="../../js/script.js"></script>
+        <script src="../../js/actor/actor-common.js"></script>
         <script src="../../js/actor/new-actor.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
@@ -32,25 +33,30 @@
         </nav>
         <main class="container-fluid">
             <div class="content-container">
-                <form id="form" onsubmit="return submitActor()" class="form">
+                <form id="form" onsubmit="return createActor()" class="form">
                     <h2>Add new actor</h2>
-                    <label for="name">Full name:</label>
-                    <input id="name" name="name" placeholder="Actor name" class="form-control">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="first-name">First name:</label>
+                            <input id="first-name" name="firstName" placeholder="Actor name" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="last-name">Last name:</label>
+                            <input id="last-name" name="lastName" placeholder="Actor name" class="form-control">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-4">
                             <label for="gender">Gender:</label>
-                            <select id="gender" name="gender" class="form-select">
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
+                            <select id="gender" name="gender" class="form-select"></select>
                         </div>
                         <div class="col-4">
                             <label for="birth-date">Date of birth:</label>
-                            <input id="birth-date" name="born" class="form-control" type="date" value=""/>
+                            <input id="birth-date" name="dateOfBirth" class="form-control" type="date" value=""/>
                         </div>
                         <div class="col-4">
                             <label for="death-date">Date of death:</label>
-                            <input id="death-date" name="died" class="form-control" type="date" value=""/>
+                            <input id="death-date" name="dateOfDeath" class="form-control" type="date" value=""/>
                         </div>
                     </div>
                     <div class="button-container">
