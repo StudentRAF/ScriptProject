@@ -57,16 +57,20 @@ route.put("/title/:id", (request, response) => {
         title.duration    = request.body.duration;
 
         title.save();
+        console.log("paramid: " + request.params.id);
+        console.log("titleid: " + title.id);
 
         title.getGenres().then(async genres => {
-            let toRemove = [].concat(genres.map(genre => parseInt(genre.id)));
-            let toAppend = request.body.genres ? [].concat(request.body.genres) : [];
-            toAppend.map(item => parseInt(item));
+            const oldGenres = [].concat(genres.map(genre => parseInt(genre.id)));
+            const newGenres = request.body.genres ? [].concat(request.body.genres).map(item => parseInt(item)) : [];
 
-            await Genre.findAll({where: {id: {[Op.or]: toRemove.filter(value => toAppend.indexOf(value) === -1)}}})
-                .then(genres => title.removeGenres(genres));
-            await Genre.findAll({where: {id: {[Op.or]: toAppend.filter(value => toRemove.indexOf(value) === -1)}}})
-                .then(genres => title.addGenres(genres));
+            const toRemove = oldGenres.filter(value => newGenres.indexOf(value) === -1);
+            const toAppend = newGenres.filter(value => oldGenres.indexOf(value) === -1);
+
+            if (toRemove.length > 0)
+                await Genre.findAll({where: {id: {[Op.or]: toRemove}}}).then(genres => title.removeGenres(genres));
+            if (toAppend.length > 0)
+                await Genre.findAll({where: {id: {[Op.or]: toAppend}}}).then(genres => title.addGenres(genres));
         });
 
         response.json(title);

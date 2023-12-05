@@ -61,20 +61,6 @@ const generateGenre = (genre) => {
     return `<p class="cell-genre">${genre.name}</p>`
 }
 
-/*
-const generateOrderDishes = (order) => {
-    let content = String();
-
-    order.dishes.forEach((dishID, index) => content += generateDish(dishes[dishID], order.quantities[index]));
-
-    return content;
-}
-
-const generateDish = (dish, quantity) => {
-    return `<p class="column-content-dish">${dish.name} x ${quantity}</p>`
-}
- */
-
 const removeTitle = (titleID) => {
     fetch(`/title/remove/${titleID}`, {
         method: "DELETE",
