@@ -6,7 +6,8 @@
   "scripts": {
     "app": "node static/app.js",
     "app:database": "node database/app.js",
-    "start": "concurrently \"npm run app:database\" \"npm run app\""
+    "start": "concurrently \"npm run app:database\" \"npm run app\"",
+    "database:seed": "sequelize db:seed:all"
   },
   "author": "",
   "dependencies": {
